@@ -21,12 +21,19 @@
   <!-- all angular resources will be loaded from the /public folder -->
     <script src="js/controllers/mainCtrl.js"></script> <!-- load our controller -->
     <script src="js/services/commentService.js"></script> <!-- load our service -->
+    <script src="js/services/userService.js"></script> <!-- load our service -->
     <script src="js/app.js"></script> <!-- load our application -->
 
 </head>
 <!-- declare our angular app and controller -->
 <body class="container" ng-app="commentApp" ng-controller="mainController">
 <div class="col-md-8 col-md-offset-2">
+  <div>Users:</div>
+  <div ng-hide="loading" ng-repeat="user in users">
+    <h3>User: {{ user.name }}</h3>
+    <p>{{ user.email }}</p>
+
+  </div>
 
   <!-- PAGE TITLE =============================================== -->
   <div class="page-header">

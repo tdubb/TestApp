@@ -1,7 +1,7 @@
 angular.module('mainCtrl', [])
 
   // inject the Comment service into our controller
-  .controller('mainController', function($scope, $http, Comment) {
+  .controller('mainController', function($scope, $http, Comment, User) {
 
     // object to hold all the data for the new comment form
     $scope.commentData = {};
@@ -59,6 +59,12 @@ angular.module('mainCtrl', [])
 
         });
     };
+
+    User.get()
+      .success(function(data) {
+        $scope.users = data;
+        $scope.loading = false;
+      });
 
   });
   

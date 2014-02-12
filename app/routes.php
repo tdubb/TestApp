@@ -24,6 +24,10 @@ Route::group(array('prefix' => 'api'), function() {
   Route::resource('comments', 'CommentController', 
     array('only' => array('index', 'store', 'destroy')));
 });
+Route::group(array('prefix' => 'api'), function() {
+  Route::resource('users', 'UserController',
+    array('only' => array('index', 'store', 'destroy')));
+});
 
 // =============================================
 // CATCH ALL ROUTE =============================

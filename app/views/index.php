@@ -34,8 +34,34 @@
     <p>{{ user.email }}</p>
 
   </div>
+  <div ng-hide="userLogin" >
+  <form ng-submit="submitLogin()"> <!-- ng-submit will disable the default form action and use our function -->
+
+    <!-- AUTHOR -->
+    <div class="form-group">
+      <input type="text" class="form-control input-sm" name="email" ng-model="userData.email" placeholder="Email">
+    </div>
+
+    <!-- COMMENT TEXT -->
+    <div class="form-group">
+      <input type="text" class="form-control input-sm" name="password" ng-model="userData.password" placeholder="password">
+    </div>
+    
+    <!-- SUBMIT BUTTON -->
+    <div class="form-group text-right"> 
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </form>
+  </div>
+  <div ng-show="userLogin">
+    <form ng-submit="submitLogout()">
+      <button type="submit" class="btn btn-primary btn-lg">Logout</button>
+    </form>
+    
+  </div>
 
   <!-- PAGE TITLE =============================================== -->
+  <div ng-show="userLogin">
   <div class="page-header">
     <h2>Chat App</h2>
     <h4>Leave a Comment</h4>
@@ -71,6 +97,7 @@
     <p>{{ comment.text }}</p>
 
     <p><a href="#" ng-click="deleteComment(comment.id)" class="text-muted">Delete</a></p>
+  </div>
   </div>
 
 </div>

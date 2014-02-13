@@ -60,11 +60,22 @@ angular.module('mainCtrl', [])
         });
     };
 
+    $scope.userData = {};
+    $scope.userLogin = false;
+
     User.get()
       .success(function(data) {
         $scope.users = data;
         $scope.loading = false;
       });
 
+    $scope.submitLogin = function() {
+        $scope.userLogin = true;
+        $scope.userData = null;
+    };
+
+    $scope.submitLogout = function() {
+        $scope.userLogin = false;
+    };
   });
   

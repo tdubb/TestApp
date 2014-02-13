@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UserTableSeeder');
 		$this->call('CommentTableSeeder');
+		$this->call('UserTableSeeder');
 		$this->command->info('Comment table seeded.');
 	}
 

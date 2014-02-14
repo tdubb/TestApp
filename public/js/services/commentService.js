@@ -5,14 +5,14 @@ angular.module('commentService', [])
     return {
       // get all the comments
       get : function() {
-        return $http.get('/test/TestApp/public/api/comments');
+        return $http.get('/TestApp/public/api/comments');
       },
 
       // save a comment (pass in comment data)
       save : function(commentData) {
         return $http({
           method: 'POST',
-          url: '/test/TestApp/public/api/comments',
+          url: '/TestApp/public/api/comments',
           headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
           data: $.param(commentData)
         });
@@ -20,7 +20,7 @@ angular.module('commentService', [])
 
       // destroy a comment
       destroy : function(id) {
-        return $http.delete('/test/TestApp/public/api/comments/' + id);
+        return $http.delete('/TestApp/public/api/comments/' + id);
       }
     }
 

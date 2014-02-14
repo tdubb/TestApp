@@ -33,6 +33,7 @@ angular.module('mainCtrl', [])
             .success(function(getData) {
               $scope.comments = getData;
               $scope.loading = false;
+              $scope.commentData.text = null;
             });
 
         })
@@ -62,6 +63,10 @@ angular.module('mainCtrl', [])
 
     $scope.userData = {};
     $scope.userLogin = false;
+    $scope.$watch('userData.name', function () {
+        ($scope.authorName = $scope.userData.name);
+        console.log($scope.authorName); 
+    });
 
     User.get()
       .success(function(data) {
@@ -72,6 +77,7 @@ angular.module('mainCtrl', [])
     $scope.submitLogin = function() {
         $scope.userLogin = true;
         $scope.userData = null;
+     
     };
 
     $scope.submitLogout = function() {

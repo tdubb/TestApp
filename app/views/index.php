@@ -39,12 +39,12 @@
 
     <!-- AUTHOR -->
     <div class="form-group">
-      <input type="text" class="form-control input-sm" name="email" ng-model="userData.email" placeholder="Email">
+      <input type="text" class="form-control input-sm" name="name" ng-model="userData.name" placeholder="Name">
     </div>
 
     <!-- COMMENT TEXT -->
     <div class="form-group">
-      <input type="text" class="form-control input-sm" name="password" ng-model="userData.password" placeholder="password">
+      <!-- <input type="text" class="form-control input-sm" name="password" ng-model="userData.password" placeholder="password"> -->
     </div>
     
     <!-- SUBMIT BUTTON -->
@@ -68,23 +68,27 @@
   </div>
 
   <!-- NEW COMMENT FORM =============================================== -->
-  <form ng-submit="submitComment()"> <!-- ng-submit will disable the default form action and use our function -->
+  <div  >
+    <form ng-submit="submitComment()" > <!-- ng-submit will disable the default form action and use our function -->
 
-    <!-- AUTHOR -->
-    <div class="form-group">
-      <input type="text" class="form-control input-sm" name="author" ng-model="commentData.author" placeholder="Name">
-    </div>
+      <!-- AUTHOR -->
+      <div class="form-group">
+        <div>{{authorName}}</div>
+      </div>
 
-    <!-- COMMENT TEXT -->
-    <div class="form-group">
-      <input type="text" class="form-control input-lg" name="comment" ng-model="commentData.text" placeholder="Say what you have to say">
-    </div>
-    
-    <!-- SUBMIT BUTTON -->
-    <div class="form-group text-right"> 
-      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-    </div>
-  </form>
+      <input type="hidden" ng-model="commentData.author" ng-init="commentData.author='Tyler'" >
+
+      <!-- COMMENT TEXT -->
+      <div class="form-group">
+        <input type="text" class="form-control input-lg" name="comment" ng-model="commentData.text" placeholder="Say what you have to say">
+      </div>
+      
+      <!-- SUBMIT BUTTON -->
+      <div class="form-group text-right"> 
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      </div>
+    </form>
+  </div>
 
   <!-- LOADING ICON =============================================== -->
   <!-- show loading icon if the loading variable is set to true -->
